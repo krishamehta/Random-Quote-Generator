@@ -1,0 +1,20 @@
+$(document).ready(function(){
+
+
+	var randomQuote;
+	var autor;
+	function getQuote(){
+		$.getJSON("http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=", function(a) {
+  $("body").append(a[0].content + "<p>— " + a[0].title + "</p>")
+});
+
+
+
+	};
+
+	$("#newQuote").on("click",function(){
+	getQuote();
+
+	});
+
+	})
